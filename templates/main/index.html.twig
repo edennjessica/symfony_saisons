@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+	{# Titre #}
+	<h1>Le cycle des saisons</h1>
+
+	{# Navigation #}
+	<a href="{{path('saison', {'saison': 'hiver'})}}">
+		<p class='nav'>Hiver</p>
+	</a>
+	<a href="{{path('saison', {'saison': 'printemps'})}}">
+		<p class='nav'>Printemps</p>
+	</a>
+	<a href="{{path('saison', {'saison': 'été'})}}">
+		<p class='nav'>Été</p>
+	</a>
+	<a href="{{path('saison', {'saison': 'automne'})}}">
+		<p class='nav'>Automne</p>
+	</a>
+
+
+	{#le descriptif saison #}
+	{% if saison is defined %}
+
+		{% if saison =='hiver' %}
+
+			<img src="/images/hiver.jpg" alt="un hiver bien froid" style="width:600px; height:300px;"/>
+			<p>En hiver, il neige parfois et il fait souvent froid...</p>
+
+
+		{% elseif saison =='printemps' %}
+
+			<img src="/images/printemps.jpg" alt="un printemps un peu timide" style="width:600px; height:300px;"/>
+			<p>Au printemps, les feuilles s'ouvrent et l'herbe redevient verte...</p>
+
+
+		{% elseif saison =='été' %}
+
+			<img src="/images/ete.jpg" alt="un été très chaud" style="width:600px; height:300px;"/>
+			<p>En été, il fait chaud et beau...</p>
+
+
+		{% elseif saison =='automne' %}
+
+			<img src="/images/automne.jpeg" alt="un automne trop pluvieux" style="width:600px; height:300px;"/>
+			<p>En automne, les feuilles des arbres tombent et meurent...</p>
+
+		{% else  %}
+
+			<p>Oups, cette saison n'existe pas</p>
+
+		{% endif %}
+
+	{% endif %}
+{% endblock %}
